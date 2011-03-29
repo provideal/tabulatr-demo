@@ -1,0 +1,18 @@
+<%= table_for @products, 
+  :filter => false,  
+  :before_table_controls => [:submit, :paginator],
+  :after_table_controls => [:info_text]  do |t|
+  t.column :id, :align => 'right'
+  t.column :title, :td_html => {:style => "background-color:green"}
+  t.column :price, :th_html => {:style => "background-color:red"}
+  t.column :price, :format => "%06.2f"
+  t.column :price, :format => proc {|x| - x.to_i}, :header => 'Not Price'
+  t.column :price, :format => :euro
+  t.column :price, :format => :dollar
+  # BROKEN! t.column :price, :format => :percent
+  t.association :tags, :title
+  t.association :tags, :title, :format => proc {|x| "[#{x}]"}
+  t.association :tags, :count, :map => false
+end %>
+
+
