@@ -9,6 +9,36 @@ h2. What's in here?
 
 Some of the more _boring_ views are direct copies of the <tt>spec/dummy_app</tt> in tabulatr itself.
 
+h3. Data used
+
+We suppose we have a couple of models
+* tags has and belong to many products
+* vendors have many products
+* products belong to vendors and have and belong to many tags
+
+All this is set up if you run
+
+<pre>
+$ rake db:migrate
+(in /.../tabulatr-demo)
+==  CreateVendors: migrating ==================================================
+...
+
+$ rake db:seed
+(in /.../tabulatr-demo)
+Creating vendor 0
+Creating vendor 1
+...
+
+$ rails s
+=> Booting WEBrick
+=> Rails 3.0.5 application starting in development on http://0.0.0.0:3000
+...
+</pre>
+
+You're then ready to watch the app at <a href="http://127.0.0.1:3000" target="_blank">http://127.0.0.1:3000</a>. There's a *lot* of lorem ipsum going on inside ;)
+
+
 h2. License
 
 Copyright (c) 2010-2011 Peter Horn, <a href="http://www.provideal.net" target="_blank">Provideal GmbH</a>
