@@ -28,7 +28,7 @@ namespace :db do
       name = lorem(3+rand(3))
       product = Product.new(:title => name, :active => (rand(2) == 0), :price => (rand*10).round(2), 
         :description => lorem(5+rand(10)))
-      product.vendor = Vendor.find (k%4)+1
+      product.vendor = Vendor.find ((k%4)+1)
       product.save!
       rand(4).times do 
         product.tags << tags[rand(tags.length)]
